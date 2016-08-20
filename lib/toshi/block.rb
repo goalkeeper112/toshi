@@ -9,11 +9,11 @@ module Toshi
     end
 
     def find_by_height(height)
-      @client.get '/blocks', height: height
+      @client.get "/blocks/#{height}"
     end
 
     def find_by_hash(hash)
-      @client.get '/blocks', hash: hash
+      @client.get "/blocks/#{hash}"
     end
 
     def latest

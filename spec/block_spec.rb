@@ -2,38 +2,27 @@ require 'spec_helper'
 
 describe Toshi::Block do
 
-  before do
-    @client = double()
-    @block = described_class.new(@client)
-  end
-
-  describe '#all' do
-    it 'invokes a GET on the client' do
-      expect(@client).to receive(:get).with('/blocks')
-      @block.all
+  describe '.all' do
+    it 'invokes a GET on the client and creates_many with response' do
+      expect(Toshi::Client).to receive(:get).with('/blocks').and_return([1,2])
+      expect(described_class).to receive(:create_many).with([1,2])
+      described_class.all
     end
   end
 
-  describe '#find_by_height' do
-    it 'invokes a GET on the client' do
-      expect(@client).to receive(:get).with('/blocks/1')
-      @block.find_by_height(1)
+  describe '.find' do
+    it 'invokes a GET on the client and creates_one with response' do
+      expect(Toshi::Client).to receive(:get).with('/blocks/1').and_return(key: 'val')
+      expect(described_class).to receive(:create_one).with(key: 'val')
+      described_class.find(1)
     end
   end
 
-  describe '#find_by_hash' do
-    let(:hash) { '0000000000000000085a5e54dddaaf822e06011b38201082b74bea51ec08727c' }
-
-    it 'invokes a GET on the client' do
-      expect(@client).to receive(:get).with('/blocks/'+hash)
-      @block.find_by_hash(hash)
-    end
-  end
-
-  describe '#latest' do
-    it 'invokes a GET on the client' do
-      expect(@client).to receive(:get).with('/blocks/latest')
-      @block.latest
+  describe '.latest' do
+    it 'invokes a GET on the client and creates_one with response' do
+      expect(Toshi::Client).to receive(:get).with('/blocks/latest').and_return(key: 'val')
+      expect(described_class).to receive(:create_one).with(key: 'val')
+      described_class.latest
     end
   end
 end

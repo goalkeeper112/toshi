@@ -1,23 +1,24 @@
 module Toshi
-  class Block
-    def initialize(client)
-      @client = client
-    end
+  class Block < ApiResource
+    class << self
+      def all
+        response = client.get '/blocks'
+        create_many(response)
+      end
 
-    def all
-      @client.get '/blocks'
-    end
+      def find(identifier)
+        response = client.get '/blocks/'+identifier.to_s
+        create_one(response)
+      end
 
-    def find_by_height(height)
-      @client.get "/blocks/#{height}"
-    end
+      def latest
+        response = client.get '/blocks/latest'
+        create_one(response)
+      end
 
-    def find_by_hash(hash)
-      @client.get "/blocks/#{hash}"
-    end
-
-    def latest
-      @client.get '/blocks/latest'
+      def client
+        Client
+      end
     end
   end
 end

@@ -3,6 +3,7 @@
 A ruby wrapper around Coinbase's [Toshi](https://toshi.io/)
 
 [![Build Status](https://travis-ci.org/gary-rafferty/toshi.svg?branch=master)](https://travis-ci.org/gary-rafferty/toshi)
+[![Gem Version](https://badge.fury.io/rb/toshi.svg)](https://badge.fury.io/rb/toshi)
 
 ## Installation
 

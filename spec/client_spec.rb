@@ -9,8 +9,8 @@ describe Toshi::Client do
   end
 
   it 'delegates GET requests to Request class' do
-    expect(Toshi::Request).to receive(:get).with('/path', param: 1)
-    client.get('/path', param: 1)
+    expect(Toshi::Request).to receive(:get).with(base+'/path')
+    client.get('/path')
   end
 
   it 'delegates blocks to Block class' do

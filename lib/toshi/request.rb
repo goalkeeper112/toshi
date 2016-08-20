@@ -1,8 +1,8 @@
 module Toshi
   class Request
     class << self
-      def get(path, params)
-
+      def get(url)
+        HTTParty.get(url)
       end
     end
   end

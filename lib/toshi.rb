@@ -1,5 +1,7 @@
 require "toshi/version"
 
+require "httparty"
+
 require "toshi/block"
 require "toshi/request"
 
@@ -11,12 +13,18 @@ module Toshi
       @base_url = "http://bitcoin.toshi.io/api/v0"
     end
 
-    def get(path, params = nil)
-      Toshi::Request.get(path, params)
+    def get(path)
+      url = url_for(path)
+      Toshi::Request.get(url)
     end
 
     def blocks
       Toshi::Block.new(self)
+    end
+
+    private
+    def url_for(path)
+      @base_url + path
     end
   end
 end

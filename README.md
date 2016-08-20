@@ -2,6 +2,8 @@
 
 A ruby wrapper around Coinbase's [Toshi](https://toshi.io/)
 
+[![Build Status](https://travis-ci.org/gary-rafferty/toshi.svg?branch=master)](https://travis-ci.org/gary-rafferty/toshi)
+
 ## Installation
 
 Add this line to your application's Gemfile:

@@ -34,6 +34,9 @@ Toshi::Block.all                # returns an array of Block instances
 
 Toshi::Transaction.find('hash') # returns a Transaction instance
 Toshi::Transaction.unconfirmed  # returns an array of Transaction instances
+
+# Addresses
+Toshi::Address.find('hash')     # returns an Address instance
 ```
 
 ## Development

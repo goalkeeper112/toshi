@@ -2,9 +2,10 @@ require 'spec_helper'
 
 describe Toshi::Client do
   let(:client) { described_class.new }
+  let(:base) { 'http://bitcoin.toshi.io/api/v0' }
 
   it 'sets base url on instantiation' do
-    expect(client.base_url).to eq 'bitcoin.toshi.io/api/v0' 
+    expect(client.base_url).to eq(base)
   end
 
   it 'delegates GET requests to Request class' do

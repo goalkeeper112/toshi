@@ -8,7 +8,7 @@ module Toshi
     attr_reader :base_url
 
     def initialize
-      @base_url = "bitcoin.toshi.io/api/v0"
+      @base_url = "http://bitcoin.toshi.io/api/v0"
     end
 
     def get(path, params = nil)

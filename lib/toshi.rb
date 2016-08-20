@@ -1,6 +1,7 @@
 require "toshi/version"
 
 require "toshi/block"
+require "toshi/request"
 
 module Toshi
   class Client
@@ -12,6 +13,10 @@ module Toshi
 
     def get(path, params = nil)
       Toshi::Request.get(path, params)
+    end
+
+    def blocks
+      Toshi::Block.new(self)
     end
   end
 end

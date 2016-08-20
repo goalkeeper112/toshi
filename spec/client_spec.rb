@@ -11,4 +11,9 @@ describe Toshi::Client do
     expect(Toshi::Request).to receive(:get).with('/path', param: 1)
     client.get('/path', param: 1)
   end
+
+  it 'delegates blocks to Block class' do
+    expect(Toshi::Block).to receive(:new).with(client)
+    client.blocks
+  end
 end

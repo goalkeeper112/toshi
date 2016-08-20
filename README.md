@@ -25,11 +25,15 @@ Or install it yourself as:
 ```ruby
 # Blocks
 
-Toshi::Block.latest         # returns a Block instance
-Toshi::Block.find('hash')   # returns a Block instance
-Toshi::Block.find('height') # returns a Block instance
-Toshi::Block.all            # returns an array of Block instances
+Toshi::Block.latest             # returns a Block instance
+Toshi::Block.find('hash')       # returns a Block instance
+Toshi::Block.find('height')     # returns a Block instance
+Toshi::Block.all                # returns an array of Block instances
 
+# Transactions
+
+Toshi::Transaction.find('hash') # returns a Transaction instance
+Toshi::Transaction.unconfirmed  # returns an array of Transaction instances
 ```
 
 ## Development

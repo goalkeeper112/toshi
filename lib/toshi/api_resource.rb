@@ -2,12 +2,12 @@ module Toshi
   class ApiResource
 
     class << self
-      def create_one(attributes)
-        self.new(attributes)
+      def create_one(klass, attributes)
+        klass.new(attributes)
       end
 
-      def create_many(collection)
-        collection.map { |attr| self.new(attr) }
+      def create_many(klass, collection)
+        collection.map { |attr| klass.new(attr) }
       end
     end
 

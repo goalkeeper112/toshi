@@ -8,14 +8,14 @@ describe Toshi::ApiResource do
   describe '.create_one' do
     it 'creates a new instance of self using attributes' do
       expect(described_class).to receive(:new).with(attributes)
-      described_class.create_one(attributes)
+      described_class.create_one(described_class, attributes)
     end
   end
  
   describe '.create_many' do
     it 'creates an array of new instance of self using attributes' do
       expect(described_class).to receive(:new).twice
-      described_class.create_many([attributes, attributes])
+      described_class.create_many(described_class, [attributes, attributes])
     end
   end
 

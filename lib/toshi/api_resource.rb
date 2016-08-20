@@ -2,12 +2,16 @@ module Toshi
   class ApiResource
 
     class << self
-      def create_one(klass, attributes)
-        klass.new(attributes)
+      def create_one(attributes)
+        self.new(attributes)
       end
 
-      def create_many(klass, collection)
-        collection.map { |attr| klass.new(attr) }
+      def create_many(collection)
+        collection.map { |attr| self.new(attr) }
+      end
+
+      def client
+        Toshi::Client
       end
     end
 
@@ -22,6 +26,10 @@ module Toshi
           instance_variable_get "@#{key}"
         end
       end
+    end
+
+    def client
+      Toshi::Client
     end
   end
 end

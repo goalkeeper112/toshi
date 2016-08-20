@@ -3,18 +3,19 @@ module Toshi
     class << self
       def all
         response = client.get '/blocks'
-        create_many(self, response)
+        create_many(response)
       end
 
       def find(identifier)
         response = client.get '/blocks/'+identifier.to_s
-        create_one(self, response)
+        create_one(response)
       end
 
       def latest
         response = client.get '/blocks/latest'
-        create_one(self, response)
+        create_one(response)
       end
+    end
 
       def client
         Client

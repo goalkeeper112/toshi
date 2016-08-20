@@ -17,9 +17,9 @@ module Toshi
       end
     end
 
-      def client
-        Client
-      end
+    def transactions
+      response = client.get '/blocks/'+hash+'/transactions'
+      self.class.create_one(response)
     end
   end
 end

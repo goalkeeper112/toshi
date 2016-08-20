@@ -25,4 +25,14 @@ describe Toshi::Block do
       described_class.latest
     end
   end
+
+  describe '#transactions' do
+    let(:block) { described_class.new(hash: '000fff') }
+
+    it 'invokes a GET on the client and creates_one with response' do
+      expect(Toshi::Client).to receive(:get).with('/blocks/000fff/transactions').and_return(key: 'val')
+      expect(described_class).to receive(:create_one).with(key: 'val')
+      block.transactions
+    end
+  end
 end

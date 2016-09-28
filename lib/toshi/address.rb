@@ -5,6 +5,11 @@ module Toshi
         response = client.get '/addresses/'+identifier.to_s
         create_one(response)
       end
+      
+      def unspent(identifier)
+        response = client.get '/addressess/'+identifier.to_s+'/unspent_outputs'
+        create_one(response)
+      end
     end
   end
 end

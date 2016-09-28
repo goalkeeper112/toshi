@@ -9,6 +9,7 @@ module Toshi
       def unspent(identifier)
         puts identifier.to_s
         response = client.get '/addresses/'+identifier.to_s+'/unspent_outputs/'
+        puts response
         create_many(response)
       end
     end

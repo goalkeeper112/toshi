@@ -4,10 +4,10 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'toshi/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "toshi"
+  spec.name          = "toshi-ruby"
   spec.version       = Toshi::VERSION
-  spec.authors       = ["Gary Rafferty"]
-  spec.email         = ["gary.rafferty@gmail.com"]
+  spec.authors       = ["Luis Fernando"]
+  spec.email         = ["lfbu.112@gmail.com"]
 
   spec.summary       = %q{Ruby client for Toshi API}
   spec.description   = %q{Ruby client for Toshi API}

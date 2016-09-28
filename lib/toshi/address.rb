@@ -8,7 +8,7 @@ module Toshi
       
       def unspent(identifier)
         response = client.get '/addressess/'+identifier.to_s+'/unspent_outputs'
-        create_one(response)
+        create_many(response)
       end
     end
   end
